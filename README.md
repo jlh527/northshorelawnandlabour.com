@@ -1,11 +1,32 @@
-# Hi, I'm Laine Hargarten
+# North Shore Yard and Labour
 
-About Me
-I am a fourth-year Biomedical Engineering student at Cornell University, concentrating in biomedical imaging and instrumentation. Originally from Toronto, I moved to Ithaca to begin my studies at Cornell, and have spent time in Vancouver pursing summer research in electrical engineering at the University of British Columbia. 
-Through these experiences, I developed a strong interest in embedded systems, optics, wave propagation—both acoustic and electromagnetic—and applications in sensing, communication, and biomedical technologies. 
-Outside the lab and classroom, I’m a member of the Cornell Rowing Club and the Cornell Alpine Ski Team. When I’m not skiing or rowing, you'll find me out on a run.
+Welcome to North Shore Yard and Labour—your trusted partner for professional yard maintenance and labour services.
 
-## Contact
+## About Us
 
-LinkedIn: your-link  hi
-Email: your-email
+North Shore Yard and Labour is a locally-owned business specializing in comprehensive yard maintenance, landscaping, and labour services. Founded by a team dedicated to quality work and customer satisfaction, we provide reliable, professional solutions for residential and commercial properties.
+
+## Services
+
+- **Yard Maintenance** – Regular upkeep, mowing, trimming, and seasonal care
+- **Landscaping** – Design and installation of gardens, pathways, and outdoor spaces
+- **Labour Services** – General handyman work, heavy lifting, and project assistance
+- **Seasonal Services** – Spring cleanups, fall leaf removal, and snow management
+
+## Why Choose Us?
+
+- Professional and reliable team
+- Competitive pricing
+- Fully insured and licensed
+- Customer-focused service
+- Local expertise in the North Shore area
+
+## Contact Us
+
+**Email:** [your-email@northshoreyardandlabour.com](mailto:your-email)  
+**Phone:** [Your Phone Number]  
+**Service Area:** North Shore and surrounding communities
+
+---
+
+*North Shore Yard and Labour – We handle the work, you enjoy the results.*

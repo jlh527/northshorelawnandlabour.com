@@ -9,6 +9,7 @@
     :root{
       --accent: #2c5f2d;
       --accent-2: #3e7a3b;
+      --accent-dark: #163b16;
       --muted: #6b6b6b;
       --bg:#f4f6f7;
       --card:#ffffff;
@@ -28,21 +29,22 @@
       -moz-osx-font-smoothing:grayscale;
     }
 
+    /* Full-width header (hero) */
+    .hero{
+      background:linear-gradient(180deg, var(--accent-dark), var(--accent));
+      color:#fff;
+      width:100%;
+      border:0;
+      box-shadow:none;
+    }
+    .hero-inner{max-width:var(--max-width);margin:0 auto;padding:32px 22px;text-align:center}
+    .hero h1{margin:0;font-size:1.9rem;color:#ffffff;letter-spacing:0.2px}
+    .hero p.lead{margin:10px 0 0;color:rgba(232,245,233,0.95);max-width:760px;margin-left:auto;margin-right:auto}
+    .hero .cta{display:inline-block;margin-top:14px;background:#ffffff;color:var(--accent-2);padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none}
+    .hero .cta:hover{background:#f0f0f0}
+
     /* Page container */
     .site-wrap{max-width:var(--max-width);margin:28px auto;padding:20px}
-
-    /* Header / */
-    .hero{
-      background:linear-gradient(180deg, #3e7a3b, #2c5f2d);
-      border:1px solid rgba(30,70,32,0.2);
-      padding:32px 22px;
-      text-align:center;
-      box-shadow:0 6px 20px rgba(20,40,20,0.15);
-      margin-bottom:18px;
-    }
-
-    .hero h1{margin:0;font-size:1.9rem;color:#ffffff;letter-spacing:0.2px}
-    .hero p.lead{margin:10px 0 0;color:#e8f5e9;max-width:760px;margin-left:auto;margin-right:auto}
 
     /* Navigation */
     .nav{
@@ -78,7 +80,7 @@
 
     /* Smaller screens */
     @media (max-width:720px){
-      .hero{padding:18px}
+      .hero-inner{padding:18px}
       .hero h1{font-size:1.4rem}
       .site-wrap{margin:16px}
       .services-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));}
@@ -86,11 +88,15 @@
   </style>
 </head>
 <body>
-  <div class="site-wrap">
-    <header class="hero" role="banner">
+  <header class="hero" role="banner">
+    <div class="hero-inner">
       <h1>North Shore Lawn &amp; Labour</h1>
       <p class="lead">Reliable yard maintenance, landscaping, organizing, and general labour — proudly serving Vancouver's North Shore.</p>
-    </header>
+      <a class="cta" href="#contact">Get a free quote</a>
+    </div>
+  </header>
+
+  <div class="site-wrap">
 
     <nav class="nav" aria-label="Primary">
       <a href="#about">About</a>
@@ -103,8 +109,8 @@
     <main>
       <section id="about" aria-labelledby="about-heading">
         <h2 id="about-heading">About Us</h2>
-        <p class="muted">North Shore Lawn &amp; Labour is a locally owned, customer-first business founded and operated by Laine Hargarten and Zoe Pulfrey. We combine technical precision, hands-on expertise, and genuine care for our customers' properties.</p>
-        <p style="margin-top:10px">We take pride in clear communication, reliable scheduling, and respectful service. Whether it's seasonal yard maintenance, organizing a garage or basement, or tackling a custom project, we're ready to help.</p>
+        <p class="muted">North Shore Lawn &amp; Labour is a locally owned, customer-first business founded and operated by Laine Hargarten and Zoe Pulfrey. We combine technical precision, hands-on exp[...]</p>
+        <p style="margin-top:10px">We take pride in clear communication, reliable scheduling, and respectful service. Whether it's seasonal yard maintenance, organizing a garage or basement, or tackli[...]</p>
       </section>
 
       <section id="services" aria-labelledby="services-heading">

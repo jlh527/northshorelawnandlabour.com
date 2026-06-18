@@ -38,8 +38,8 @@
       box-shadow:none;
     }
     .hero-inner{max-width:var(--max-width);margin:0 auto;padding:32px 22px;text-align:center}
-    .hero h1{margin:0;font-size:1.9rem;color:#ffffff;letter-spacing:0.2px}
-    .hero p.lead{margin:10px 0 0;color:rgba(232,245,233,0.95);max-width:760px;margin-left:auto;margin-right:auto}
+    .hero h1{margin:0;font-size:clamp(1.25rem,5vw,1.9rem);color:#ffffff;letter-spacing:0.2px}
+    .hero p.lead{margin:10px 0 0;color:rgba(232,245,233,0.95);max-width:760px;margin-left:auto;margin-right:auto;font-size:clamp(0.95rem,3vw,1.05rem);line-height:1.4}
     .hero .cta{display:inline-block;margin-top:14px;background:#ffffff;color:var(--accent-2);padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none}
     .hero .cta:hover{background:#f0f0f0}
 
@@ -49,10 +49,10 @@
     /* Navigation */
     .nav{
       display:flex;gap:10px;justify-content:center;margin:14px 0 22px;padding:8px 0;
-      background:transparent;
+      background:transparent;flex-wrap:wrap;overflow-x:auto;padding-left:12px;padding-right:12px
     }
     .nav a{
-      color:var(--accent-2);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;
+      color:var(--accent-2);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;white-space:nowrap;
     }
     .nav a:hover{background:rgba(44,95,45,0.08)}
 
@@ -62,7 +62,7 @@
     .muted{color:var(--muted)}
 
     .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px;justify-items:center}
-    .service{padding:14px;border-radius:8px;background:linear-gradient(180deg,#fff,#fcfcfc);border-left:3px solid var(--accent-2);text-align:center;max-width:320px}
+    .service{padding:14px;border-radius:8px;background:linear-gradient(180deg,#fff,#fcfcfc);border-left:3px solid var(--accent-2);text-align:center;max-width:320px;width:100%}
     .service h4{margin:0 0 6px;color:var(--accent-2)}
 
     .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px}
@@ -71,10 +71,11 @@
     .team-member .title{font-weight:600;color:var(--accent)}
 
     .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
-    .why-card{text-align:center;padding:12px;border-radius:8px;background:#fff;border-left:4px solid var(--accent)}
+    .why-card{text-align:center;padding:12px;border-radius:8px;background:#fff;border-left:4px solid var(--accent);width:100%}
 
     .contact-info{display:grid;gap:8px;margin-top:10px}
     .contact-row{display:flex;gap:8px;align-items:center}
+    .contact-row a,.contact-row span{word-break:break-word}
 
     footer{margin-top:18px;text-align:center;color:var(--muted);font-size:.95rem}
 
@@ -82,8 +83,28 @@
     @media (max-width:720px){
       .hero-inner{padding:18px}
       .hero h1{font-size:1.4rem}
-      .site-wrap{margin:16px}
+      .hero p.lead{padding:0 6px}
+      .site-wrap{margin:16px;padding:14px}
       .services-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));}
+
+      /* Make CTA full-width and easy to tap */
+      .hero .cta{display:block;width:100%;max-width:360px;margin:14px auto;padding:12px 14px;text-align:center}
+
+      /* Nav should be left-aligned and horizontally scrollable */
+      .nav{justify-content:flex-start}
+
+      /* Stack contact rows for readability */
+      .contact-row{flex-direction:column;align-items:flex-start}
+
+      /* Slightly larger section spacing on small screens */
+      section{padding:16px}
+    }
+
+    /* Very small phones */
+    @media (max-width:380px){
+      .hero h1{font-size:1.2rem}
+      .hero p.lead{font-size:0.95rem}
+      .nav a{padding:8px 10px;font-size:.95rem}
     }
   </style>
 </head>
@@ -109,8 +130,8 @@
     <main>
       <section id="about" aria-labelledby="about-heading">
         <h2 id="about-heading">About Us</h2>
-        <p class="muted">North Shore Lawn &amp; Labour is a locally owned, customer-first business founded and operated by Laine Hargarten and Zoe Pulfrey. We combine technical precision, hands-on experience, and strong organizational skills to deliver dependable, high-quality work.</p>
-        <p style="margin-top:10px">We take pride in clear communication, reliable scheduling, and respectful service. Whether it’s seasonal yard maintenance, organizing a garage or basement, or providing general labour for a one-off project, we handle the heavy lifting so you don’t have to.</p>
+        <p class="muted">North Shore Lawn &amp; Labour is a locally owned, customer-first business founded and operated by Laine Hargarten and Zoe Pulfrey. We combine technical precision, hands-o[...]
+        <p style="margin-top:10px">We take pride in clear communication, reliable scheduling, and respectful service. Whether it’s seasonal yard maintenance, organizing a garage or basement, or prov[...]
       </section>
 
       <section id="services" aria-labelledby="services-heading">
@@ -162,10 +183,10 @@
     </main>
 
     <footer>
-      <p> North Shore Lawn &amp; Labour — Proudly serving the North Shore community</p>
+      <p> North Shore Lawn &amp; Labour — Proudly serving the North Shore community — <span id="year"></span></p>
     </footer>
   </div>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>var yearEl = document.getElementById('year'); if(yearEl) yearEl.textContent = new Date().getFullYear();</script>
 </body>
 </html>

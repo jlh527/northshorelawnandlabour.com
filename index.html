@@ -1,233 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="North Shore Lawn & Labour — professional yard maintenance, landscaping, organizing, and general labour serving Vancouver's North Shore.">
-    <title>North Shore Lawn &amp; Labour</title>
-    <style>
-        :root{
-            --accent:#2c5f2d;
-            --accent-dark:#1e4620;
-            --muted:#666;
-            --bg:#f7f7f7;
-            --card:#ffffff;
-            --max-width:1100px;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="North Shore Lawn & Labour — professional yard maintenance, landscaping, organizing, and general labour serving Vancouver's North Shore.">
+  <title>North Shore Lawn & Labour</title>
+  <style>
+    :root{
+      --accent: #2c5f2d;
+      --accent-2: #3e7a3b;
+      --muted: #6b6b6b;
+      --bg:#f4f6f7;
+      --card:#ffffff;
+      --max-width:980px;
+    }
 
-        *{box-sizing:border-box}
-        html,body{height:100%;}
-        body{
-            margin:0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            color:#222;
-            background:var(--bg);
-            line-height:1.6;
-        }
+    /* Reset & base */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      color:#222;
+      background:var(--bg);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
 
-        header.hero{
-            background: linear-gradient(135deg,var(--accent) 0%, var(--accent-dark) 100%);
-            color:#fff;
-            padding:56px 20px;
-            text-align:center;
-        }
+    /* Page container */
+    .site-wrap{max-width:var(--max-width);margin:28px auto;padding:20px}
 
-        .container{
-            max-width:var(--max-width);
-            margin:0 auto;
-            padding:28px 20px;
-        }
+    /* Header / hero as a subtle card so site looks like a business site, not a repo */
+    .hero{
+      background:linear-gradient(180deg,#fff, #fbfffb);
+      border:1px solid rgba(30,70,32,0.06);
+      border-radius:12px;
+      padding:32px 22px;
+      text-align:center;
+      box-shadow:0 6px 20px rgba(20,40,20,0.04);
+      margin-bottom:18px;
+    }
 
-        nav.main-nav{
-            display:flex;
-            justify-content:center;
-            gap:12px;
-            padding:12px 0;
-            background:var(--accent-dark);
-            position:sticky;
-            top:0;
-            z-index:40;
-        }
+    .hero h1{margin:0;font-size:1.9rem;color:var(--accent-2);letter-spacing:0.2px}
+    .hero p.lead{margin:10px 0 0;color:var(--muted);max-width:760px;margin-left:auto;margin-right:auto}
 
-        nav.main-nav a{
-            color:#fff;
-            text-decoration:none;
-            padding:10px 14px;
-            border-radius:6px;
-            font-weight:600;
-        }
+    /* Navigation - light, simple */
+    .nav{
+      display:flex;gap:10px;justify-content:center;margin:14px 0 22px;padding:8px 0;
+      background:transparent;
+    }
+    .nav a{
+      color:var(--accent-2);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;
+    }
+    .nav a:hover{background:rgba(44,95,45,0.08)}
 
-        nav.main-nav a:hover{background:rgba(255,255,255,0.06)}
+    /* Sections as clear cards */
+    section{background:var(--card);padding:20px;border-radius:10px;margin-bottom:18px;border:1px solid rgba(16,24,16,0.03)}
+    section h2{color:var(--accent);margin:0 0 10px;font-size:1.25rem}
+    .muted{color:var(--muted)}
 
-        .hero-inner{max-width:900px;margin:0 auto}
-        .hero-inner h1{font-size:2.4rem;margin-bottom:8px;letter-spacing:0.4px}
-        .hero-inner p.lead{font-size:1.05rem;opacity:0.95;margin-bottom:18px}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
+    .service{padding:14px;border-radius:8px;background:linear-gradient(180deg,#fff,#fcfcfc);border-left:3px solid var(--accent-2)}
+    .service h4{margin:0 0 6px;color:var(--accent-2)}
 
-        .cta {
-            display:inline-block;
-            background:#fff;
-            color:var(--accent-dark);
-            padding:12px 18px;
-            border-radius:8px;
-            font-weight:700;
-            text-decoration:none;
-            box-shadow:0 6px 18px rgba(30,70,32,0.12);
-        }
+    .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px}
+    .team-member{padding:14px;border-radius:8px;background:#fff}
+    .team-member h3{margin:0 0 6px;color:var(--accent-2)}
+    .team-member .title{font-weight:600;color:var(--accent)}
 
-        .cta.secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.15)}
+    .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
+    .why-card{text-align:center;padding:12px;border-radius:8px;background:#fff;border-left:4px solid var(--accent)}
 
-        section{margin:32px 0;padding:28px;background:var(--card);border-radius:10px;box-shadow:0 4px 18px rgba(16,24,16,0.04)}
-        section h2{color:var(--accent);margin-bottom:12px}
-        .muted{color:var(--muted)}
+    .contact-info{display:grid;gap:8px;margin-top:10px}
+    .contact-row{display:flex;gap:8px;align-items:center}
 
-        .grid{display:grid;gap:18px}
-        .services-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:.95rem}
 
-        .service{padding:16px;border-radius:8px;background:linear-gradient(180deg, #fff, #fbfbfb);border-left:4px solid var(--accent-dark)}
-        .service h4{margin:0 0 8px 0;color:var(--accent-dark)}
-
-        .team-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:start}
-        .team-member{padding:18px;border-radius:8px;background:#fff;text-align:left}
-        .team-member h3{margin:0 0 6px 0;color:var(--accent-dark)}
-        .team-member p.title{font-weight:600;color:var(--accent)}
-
-        .contact-info{display:grid;gap:8px}
-        .contact-row{display:flex;align-items:center;gap:12px}
-
-        footer{margin-top:28px;padding:22px 20px;text-align:center;background:var(--accent-dark);color:#fff;border-radius:8px}
-
-        @media (max-width:720px){
-            .hero-inner h1{font-size:1.6rem}
-            nav.main-nav{flex-wrap:wrap}
-        }
-    </style>
+    /* Smaller screens */
+    @media (max-width:720px){
+      .hero{padding:18px}
+      .hero h1{font-size:1.4rem}
+      .site-wrap{margin:16px}
+    }
+  </style>
 </head>
 <body>
+  <div class="site-wrap">
     <header class="hero" role="banner">
-        <div class="hero-inner">
-            <h1>North Shore Lawn &amp; Labour</h1>
-            <p class="lead">Professional yard maintenance, landscaping, home organizing, and general labour — proudly serving Vancouver's North Shore.</p>
-            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">
-                <a class="cta" href="#contact">Get a Free Quote</a>
-                <a class="cta secondary" href="#services">Our Services</a>
-            </div>
-        </div>
+      <h1>North Shore Lawn &amp; Labour</h1>
+      <p class="lead">Professional yard maintenance, landscaping, organizing, and general labour — proudly serving Vancouver's North Shore.</p>
     </header>
 
-    <nav class="main-nav" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#team">Team</a>
-        <a href="#why-us">Why Us</a>
-        <a href="#contact">Contact</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#team">Team</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#contact">Contact</a>
     </nav>
 
-    <main class="container" role="main">
-        <section id="about" aria-labelledby="about-heading">
-            <h2 id="about-heading">About Us</h2>
-            <p class="muted">North Shore Lawn &amp; Labour is a locally owned, customer-first business founded and operated by Laine Hargarten and Zoe Pulfrey. We combine technical precision, hands-on landscaping experience, and strong organizational skills to deliver dependable, high-quality work for both residential and small commercial clients.</p>
-            <p style="margin-top:12px;">We take pride in clear communication, reliable scheduling, and respectful service. Whether it’s seasonal yard maintenance, clearing and organizing a garage or basement, or providing general labour for a one-off project, we handle the heavy lifting so you don’t have to.</p>
-        </section>
+    <main>
+      <section id="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About Us</h2>
+        <p class="muted">North Shore Lawn &amp; Labour is a locally owned, customer-first business founded and operated by Laine Hargarten and Zoe Pulfrey. We combine technical precision, hands-on landscaping experience, and strong organizational skills to deliver dependable, high-quality work for both residential and small commercial clients.</p>
+        <p style="margin-top:10px">We take pride in clear communication, reliable scheduling, and respectful service. Whether it’s seasonal yard maintenance, organizing a garage or basement, or providing general labour for a one-off project, we handle the heavy lifting so you don’t have to.</p>
+      </section>
 
-        <section id="services" aria-labelledby="services-heading">
-            <h2 id="services-heading">Services</h2>
-            <div class="grid services-grid">
-                <div class="service">
-                    <h4>Yard Maintenance</h4>
-                    <p class="muted">Mowing, edging, trimming, seasonal cleanups, and ongoing maintenance plans tailored to your property.</p>
-                </div>
-                <div class="service">
-                    <h4>Weeding & Garden Care</h4>
-                    <p class="muted">Weed removal, bed preparation, mulching and basic planting to keep gardens healthy and tidy.</p>
-                </div>
-                <div class="service">
-                    <h4>Organizing & Decluttering</h4>
-                    <p class="muted">Garage, basement, and storage organization — we sort, declutter, and set up systems that work for you.</p>
-                </div>
-                <div class="service">
-                    <h4>General Labour</h4>
-                    <p class="muted">Moving assistance, hauling, cleanups, and a variety of odd jobs — if you need it done, we’ll do it safely and efficiently.</p>
-                </div>
-                <div class="service">
-                    <h4>Knife Sharpening & Tool Care</h4>
-                    <p class="muted">On-site knife and small-tool sharpening so your equipment performs when you need it.</p>
-                </div>
-                <div class="service">
-                    <h4>Custom Projects</h4>
-                    <p class="muted">Have a unique job in mind? We’re happy to discuss custom quotes and timelines for one-off work.</p>
-                </div>
-            </div>
-        </section>
+      <section id="services" aria-labelledby="services-heading">
+        <h2 id="services-heading">Services</h2>
+        <div class="services-grid">
+          <div class="service"><h4>Yard Maintenance</h4><p class="muted">Mowing, edging, trimming, seasonal cleanups, and maintenance plans.</p></div>
+          <div class="service"><h4>Weeding &amp; Garden Care</h4><p class="muted">Weed removal, bed prep, mulching, and basic planting.</p></div>
+          <div class="service"><h4>Organizing &amp; Decluttering</h4><p class="muted">Garage, basement, and storage organization — systems that work.</p></div>
+          <div class="service"><h4>General Labour</h4><p class="muted">Moving assistance, hauling, cleanups, and odd jobs.</p></div>
+          <div class="service"><h4>Knife Sharpening</h4><p class="muted">On-site sharpening and basic tool care.</p></div>
+          <div class="service"><h4>Custom Projects</h4><p class="muted">One-off jobs and custom quotes — tell us what you need.</p></div>
+        </div>
+      </section>
 
-        <section id="team" aria-labelledby="team-heading">
-            <h2 id="team-heading">Meet Our Team</h2>
-            <div class="grid team-grid">
-                <div class="team-member">
-                    <h3>Laine Hargarten</h3>
-                    <p class="title">Co-Owner</p>
-                    <p class="muted">Laine brings a background in electrical engineering and a detail-oriented approach to project planning, safety, and problem solving. She focuses on efficient workflows and ensuring quality outcomes.</p>
-                </div>
-                <div class="team-member">
-                    <h3>Zoe Pulfrey</h3>
-                    <p class="title">Co-Owner</p>
-                    <p class="muted">Zoe has years of hands-on landscaping and painting experience. She coordinates projects, manages timelines, and ensures customer satisfaction through careful craftsmanship and communication.</p>
-                </div>
-            </div>
-        </section>
+      <section id="team" aria-labelledby="team-heading">
+        <h2 id="team-heading">Meet Our Team</h2>
+        <div class="team-grid">
+          <div class="team-member">
+            <h3>Laine Hargarten</h3>
+            <div class="title">Co-Owner</div>
+            <p class="muted">Background in electrical engineering; focuses on planning, safety, and quality outcomes.</p>
+          </div>
+          <div class="team-member">
+            <h3>Zoe Pulfrey</h3>
+            <div class="title">Co-Owner</div>
+            <p class="muted">Experienced landscaper and painter; coordinates projects and ensures customer satisfaction.</p>
+          </div>
+        </div>
+      </section>
 
-        <section id="why-us" aria-labelledby="why-heading">
-            <h2 id="why-heading">Why Choose Us</h2>
-            <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
-                <div style="padding:16px;border-radius:8px;background:#fff;text-align:center;border-left:4px solid var(--accent)">
-                    <h4>Professional & Reliable</h4>
-                    <p class="muted">Licensed, insured, and committed to showing up on time and completing the job right.</p>
-                </div>
-                <div style="padding:16px;border-radius:8px;background:#fff;text-align:center;border-left:4px solid var(--accent)">
-                    <h4>Clear Pricing</h4>
-                    <p class="muted">Transparent estimates and competitive rates — no surprise fees.</p>
-                </div>
-                <div style="padding:16px;border-radius:8px;background:#fff;text-align:center;border-left:4px solid var(--accent)">
-                    <h4>Customer Focused</h4>
-                    <p class="muted">We tailor our approach to your needs and keep communication simple and direct.</p>
-                </div>
-                <div style="padding:16px;border-radius:8px;background:#fff;text-align:center;border-left:4px solid var(--accent)">
-                    <h4>Locally Owned</h4>
-                    <p class="muted">Proudly serving the North Shore community with care and local knowledge.</p>
-                </div>
-            </div>
-        </section>
+      <section id="why-us" aria-labelledby="why-heading">
+        <h2 id="why-heading">Why Choose Us</h2>
+        <div class="why-grid">
+          <div class="why-card"><h4>Professional & Reliable</h4><p class="muted">Licensed, insured, and punctual.</p></div>
+          <div class="why-card"><h4>Clear Pricing</h4><p class="muted">Transparent estimates and no surprise fees.</p></div>
+          <div class="why-card"><h4>Customer Focused</h4><p class="muted">We tailor our approach to your needs.</p></div>
+          <div class="why-card"><h4>Locally Owned</h4><p class="muted">Proudly serving the North Shore community.</p></div>
+        </div>
+      </section>
 
-        <section id="contact" aria-labelledby="contact-heading">
-            <h2 id="contact-heading">Contact Us</h2>
-            <p class="muted">Call or email today for a free, no-obligation quote. We respond quickly and are happy to provide a written estimate.</p>
-
-            <div class="contact-info" style="margin-top:12px;">
-                <div class="contact-row">
-                    <strong>Email:</strong>
-                    <a href="mailto:northshorelawnandlabour@gmail.com">northshorelawnandlabour@gmail.com</a>
-                </div>
-                <div class="contact-row">
-                    <strong>Phone:</strong>
-                    <a href="tel:416-786-1822">416-786-1822</a>
-                </div>
-                <div class="contact-row">
-                    <strong>Service Area:</strong>
-                    <span class="muted">Vancouver's North Shore and surrounding communities</span>
-                </div>
-                <p style="margin-top:12px;font-style:italic;color:var(--muted)">Available for one-off projects, seasonal contracts, and regular maintenance — ask about availability when you call.</p>
-            </div>
-        </section>
+      <section id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact Us</h2>
+        <p class="muted">Call or email today for a free, no-obligation quote. We respond quickly and can provide a written estimate.</p>
+        <div class="contact-info">
+          <div class="contact-row"><strong>Email:</strong><a href="mailto:northshorelawnandlabour@gmail.com">northshorelawnandlabour@gmail.com</a></div>
+          <div class="contact-row"><strong>Phone:</strong><a href="tel:416-786-1822">416-786-1822</a></div>
+          <div class="contact-row"><strong>Service Area:</strong><span class="muted">Vancouver's North Shore and nearby communities</span></div>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p style="margin:0">&copy; <span id="year">2026</span> North Shore Lawn &amp; Labour — Proudly serving the North Shore community</p>
-        </div>
+      <p>&copy; <span id="year">2026</span> North Shore Lawn &amp; Labour — Proudly serving the North Shore community</p>
     </footer>
+  </div>
 
-    <script>
-        // Update copyright year automatically
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
